@@ -11,11 +11,11 @@ for (i = -5; i <= 5; i++) {
         if (outString > (i + 5)) {
             outString = " ";
         }
-        // if (i > 0) {
-        //     if (outString > (5-i )) {
-        //         outString = " ";
-        //     }
-        // }
+        if (i > 0) {
+            if (outString > (5-i )) {
+                outString = " ";
+            }
+        }
 
 
         x = x + " " + outString;
@@ -23,4 +23,5 @@ for (i = -5; i <= 5; i++) {
     }
 
     console.log(x);
+    // console.log(i + " => " + x);
 }
