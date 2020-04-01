@@ -10,7 +10,7 @@ for(i = start; i <= rows ; i ++)
     for(j= rows; j>= i ; j --)
     {
     
-        if (typeof x !== 'undefined')
+       // if (typeof x !== 'undefined')
         {
                 x = x + " " + (y++);
         }
