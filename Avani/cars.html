@@ -1,0 +1,33 @@
+<html>
+
+<head>
+    <title>C.A.R.S</title>
+</head>
+
+<body>
+    <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+    <script>
+        var Cars = function (x, y) {
+            this.x = x,
+                this.y = y
+        };
+
+        var drawCars = function (car) {
+            var carHtml = '<img src="bharat7.jpg" width = 400 , height = 400>';
+            var carElement = $(carHtml);
+            carElement.css({
+                position: "absolute",
+                left: car.x,
+                top: car.y
+            });
+            $("body").append(carElement);
+        };
+
+        var tesla = new Cars(20, 20);
+        var nissan = new Cars(500, 400);
+        drawCars(tesla);
+        drawCars(nissan);
+    </script>
+</body>
+
+</html>

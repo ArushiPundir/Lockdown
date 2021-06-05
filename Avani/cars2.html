@@ -1,0 +1,58 @@
+<html>
+
+<head>
+    <title>Hello DOM</title>
+</head>
+
+<body>
+    <h1 id="main-heading">Hello World!</h1>
+    <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+    <script>
+        var Car = function (x, y) {
+            this.x = x;
+            this.y = y;
+            this.draw();
+            this.speed = 5;
+        };
+
+        Car.prototype.draw = function () {
+            var carHtml = '<img src="bharat7.jpg" width = 400 , height = 400>';
+            this.carElement = $(carHtml);
+            this.carElement.css({
+                position: "absolute",
+                left: this.x,
+                top: this.y
+            });
+            $("body").append(this.carElement);
+        };
+
+        Car.prototype.moveRight = function (distance) {
+            this.x += distance;
+            this.carElement.css({
+                left: this.x,
+                top: this.y
+            });
+        };
+
+        var tesla = new Car(10, 20);
+        var nissan = new Car(100, 200);
+
+        //tesla.draw();
+        //nissan.draw();
+
+        tesla.moveRight(10);
+       //tesla.moveRight(10);
+       //tesla.moveRight(10);
+       nissan.moveRight(10);
+       //nissan.moveRight();
+       //setInterval(nissan.moveRight(10) , 30);
+      var clearIntervalId = setInterval(function () {
+      tesla.moveRight(Math.random() * 5);
+      nissan.moveRight(Math.random() * 5);
+    }, 10);
+    //clearInterval(clearIntervalId); //to stop the game.
+
+    </script>
+</body>
+
+</html>

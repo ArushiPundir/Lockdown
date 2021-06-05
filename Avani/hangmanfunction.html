@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>The Hangman Game</title>
+</head>
+<body>
+<h1>The Hangman Game</h1>
+<script>
+var word = pickWord();
+var answerArray = setupAnswerArray(word);
+var remainingLetters = word.length;
+while (remainingLetters > 0) {
+showPlayerProgress(answerArray);
+var guess = getGuess();
+if (guess === null) {
+break;
+} else if (guess.length !== 1) {
+alert("Please enter a single letter.");
+} else {
+var correctGuesses = updateGameState(guess, word, answerArray);
+remainingLetters -= correctGuesses;
+}
+}
+showAnswerAndCongratulatePlayer(answerArray);
+
+
+</script>
+</body>
+</html>

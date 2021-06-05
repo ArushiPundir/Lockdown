@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>CANVAS</title>
+    </head>
+    <body>
+        <canvas id="canvas" width = 200 , height = 200></canvas>
+        <script>
+            var canvas = document.getElementById("canvas");
+            var ctx = canvas.getContext("2d");
+            ctx.lineWidth = 14;
+            ctx.strokeStyle = "Red";
+            ctx.beginPath();
+            ctx.moveTo(10,10);
+            ctx.lineTo(60,60);
+            ctx.moveTo(60,10);
+            ctx.lineTo(10,60);
+            ctx.stroke();
+           // ctx.fillRect(0,0,10,10);
+           
+        </script>
+    </body>
+</html>

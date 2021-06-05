@@ -1,0 +1,51 @@
+<html>
+<head>
+<title>The Hangman Game</title>
+</head>
+<body>
+<h1>The Hangman Game</h1>
+<script>
+var words = ["monkey" , "pancake" , "javascript" , "amazing"];
+var randomWord = words[Math.floor(Math.random() * words.length)];
+var answerArray = [];
+for(var i = 0; i< randomWord.length ; i++) {
+answerArray[i] = "_";
+}
+var remainingLetters = randomWord.length;
+var noOfChancesLeft = randomWord.length +3; //or you can give any no. of chances
+
+while((remainingLetters > 0) && (noOfChancesLeft > 0)){
+alert(answerArray.join(" "));
+var yourguess = prompt("Guess a letter ? or click cancel to stop playing");
+var guess = yourguess.toLowerCase();
+
+if(guess == null){
+alert("Enter some letter");
+}
+
+else if(guess.length !== 1){
+alert("Please enter single letter");
+}
+
+else{
+noOfChancesLeft--;
+for(var j = 0; j< randomWord.length; j++) {
+ if(randomWord[j] === guess && answerArray[j] === "_"){
+answerArray[j] = guess;
+remainingLetters--;
+}
+
+}
+
+}
+}
+alert(answerArray.join(" "));
+if(noOfChancesLeft>0){
+alert("Congratulations ! The word was - " + randomWord + "  The no.of Chances left are - " + noOfChancesLeft);
+}
+else{
+alert("You Lost ! So sorry all your chances has been finished " + "The answer was " + randomWord);
+}
+</script>
+</body>
+</html>
