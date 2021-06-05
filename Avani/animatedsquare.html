@@ -1,0 +1,71 @@
+<html>
+
+<head>
+    <title>Hello DOM</title>
+</head>
+
+<body>
+    <h1 id="main-heading">Hello World!</h1>
+    <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+    <script>
+       var offset = 0;
+       var direction = 'right';
+       var intervalLength = 120;
+       var clicks = 0;
+
+      
+       $("h1").offset({left : offset , top : offset});
+       var moveHeading = function (){
+       if(direction === 'right'){
+           $("h1").offset({left : offset});
+           offset++;
+           if(offset> 200){
+               offset = 0;
+               direction = 'down';
+           }
+       }
+       else if(direction=== 'down'){
+           $("h1").offset({top : offset});
+           offset++;
+           if(offset>200){
+               offset = 200;
+               direction = 'left';
+           }
+       }
+       else if(direction === 'left'){
+           $("h1").offset({left : offset});
+           offset--;
+           if(offset<0){
+               offset = 200;
+               direction = 'up';
+           }
+       }
+       else if(direction === 'up'){
+           $("h1").offset({ top : offset});
+           offset--;
+           if(offset <0){
+               offset = 0;
+               direction = 'right';
+           }
+       }
+       };
+      var intervalId = setInterval(moveHeading, intervalLength);
+      $("h1").click(function(){
+          clearInterval(intervalId);
+          intervalLength /=2;
+          clicks++;
+          if(clicks>10){
+              $("h1").text("You Win " + "click = " + clicks);
+          }
+          else {
+        intervalId = setInterval(moveHeading, intervalLength)
+
+      }
+
+      });
+      
+
+</script>
+</body>
+
+</html>

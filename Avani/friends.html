@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>F.R.I.E.N.D.S</title>
+    </head>
+    <body>
+        <h1>Hello World</h1>
+
+        <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+        <script>
+            $("h1").text("Hi Friends");
+            //$("h1").fadeTo(2000, 0.2);
+            var friendsArray = ["Avani" , "Mohit" , "Vedant"];
+            for (var i = 0; i < friendsArray.length ; i++){
+                $("body").append("<p>" + friendsArray[i] + "</p>");
+             }
+             $("p").append(" smells!");
+
+
+               
+            
+
+        </script>
+
+    </body>
+</html>
